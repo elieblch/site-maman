@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emmanuelle Francblu — Psychanalyste & Hypnothérapeute à Paris</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --beige:     #EAE4D0;
+      --beige-mid: #DDD6BE;
+      --beige-dark:#D4CBAA;
+      --terra:     #5F8C6E;
+      --terra-dark:#3D6B50;
+      --terra-pale:#C8DDD0;
+      --brown:     #2A3D2E;
+      --warm-white:#F7F3E8;
+      --text:      #2A3D2E;
+      --text-mid:  #3D6B50;
+      --text-light:#5F8C6E;
+      --accent:    #E8C84A;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--warm-white);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--beige-dark);
+      padding: 0 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 68px;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--terra-dark);
+      letter-spacing: 0.03em;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 4px;
+      z-index: 101;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--text);
+      transition: transform 0.3s ease, opacity 0.2s ease;
+      transform-origin: center;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    .hero-left {
+      padding: 80px 60px;
+    }
+    .hero-right {
+      height: 100%;
+      min-height: 88vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3));
+      pointer-events: none;
+    }
+    .hero-right-quote {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      padding: 40px;
+      font-family: var(--serif);
+      font-size: 15px;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.8;
+      max-width: 340px;
+      border-left: 2px solid var(--accent);
+      margin: 0;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--terra);
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--brown);
+      margin-bottom: 28px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--terra);
+    }
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+    .btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+    .btn-primary {
+      background: var(--terra);
+      color: var(--warm-white);
+      border: 1px solid var(--terra);
+    }
+    .btn-primary:hover {
+      background: var(--terra-dark);
+      border-color: var(--terra-dark);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--terra);
+      border: 1px solid var(--terra-pale);
+    }
+    .btn-outline:hover {
+      border-color: var(--terra);
+      background: var(--beige);
+    }
+
+    /* ─── SECTION SHARED ─── */
+    section { padding: 96px 60px; }
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--terra);
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 520px;
+      margin-bottom: 56px;
+      line-height: 1.8;
+    }
+    .section-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    /* ─── À PROPOS ─── */
+    #apropos {
+      background: var(--warm-white);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+      padding: 96px 60px;
+    }
+    .apropos-visual { position: relative; }
+    .apropos-photo-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--beige);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .apropos-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .apropos-content p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .formations-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--brown);
+      margin: 32px 0 16px;
+    }
+    .formations-list {
+      list-style: none;
+      padding: 0;
+    }
+    .formations-list li {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .formations-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--terra);
+    }
+
+    .cabinet-photo {
+      grid-column: 1 / -1;
+      margin-top: 40px;
+    }
+    .cabinet-photo img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 4px;
+      display: block;
+    }
+    .cabinet-photo figcaption {
+      text-align: center;
+      font-style: italic;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-light);
+      margin-top: 12px;
+    }
+
+    /* ─── APPROCHE ─── */
+    #approche { background: var(--beige); }
+    .approche-intro {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+    .approche-subtitle {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .approche-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+    .approche-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .approche-card {
+      background: var(--warm-white);
+      padding: 36px 28px;
+      border-radius: 4px;
+      border: 1px solid var(--beige-dark);
+    }
+    .approche-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--brown);
+      margin-bottom: 14px;
+    }
+    .approche-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .approche-closing {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 720px;
+      font-style: italic;
+    }
+
+    /* ─── ACCOMPAGNEMENTS ─── */
+    #accompagnements { background: var(--warm-white); }
+    .accomp-intro {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .accomp-list {
+      list-style: none;
+      padding: 0;
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+    .accomp-list li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding: 10px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    .accomp-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--terra);
+      font-weight: 500;
+    }
+    .accomp-closing {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 720px;
+    }
+
+    /* ─── DÉROULEMENT ─── */
+    #deroulement { background: var(--beige); }
+    .deroulement-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    /* ─── LOCALISATION ─── */
+    #localisation { background: var(--warm-white); padding: 96px 60px; }
+    .local-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .local-address {
+      margin-top: 32px;
+      padding: 28px 32px;
+      background: var(--beige);
+      border-left: 3px solid var(--terra);
+      border-radius: 0 4px 4px 0;
+    }
+    .local-address p {
+      font-size: 15px;
+      color: var(--text-mid);
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .local-address strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .local-details {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .local-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-mid);
+    }
+    .local-detail svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--terra);
+    }
+    .map-frame {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--beige-dark);
+    }
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--beige); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-intro p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .contact-info {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+    .contact-info-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--terra);
+      flex-shrink: 0;
+    }
+    .form-group { margin-bottom: 20px; }
+    label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terra-dark);
+      margin-bottom: 8px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--beige-dark);
+      border-radius: 2px;
+      background: var(--warm-white);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text);
+      transition: border-color 0.2s;
+      outline: none;
+      appearance: none;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--terra); }
+    textarea { height: 120px; resize: vertical; }
+    .form-note {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--brown);
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--beige);
+      letter-spacing: 0.03em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--beige-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--terra-pale); }
+    .footer-copy { font-size: 12px; font-weight: 300; color: var(--text-light); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+    .hero-title   { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-sub     { animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-left .btn { animation: fadeUp 0.6s 0.3s ease both; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 0 32px; }
+      .nav-links { gap: 20px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 64px 32px; }
+      .hero-title { font-size: 44px; }
+      section { padding: 72px 32px; }
+      #apropos { grid-template-columns: 1fr; padding: 72px 32px; gap: 48px; }
+      #localisation { padding: 72px 32px; }
+      .approche-cards { grid-template-columns: 1fr; }
+      .local-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--warm-white);
+        border-bottom: 1px solid var(--beige-dark);
+        flex-direction: column;
+        padding: 8px 20px 20px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 8px 24px rgba(61,34,21,0.06);
+      }
+      .nav-links li { border-bottom: 1px solid var(--beige-mid); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { display: block; padding: 14px 0; font-size: 14px; letter-spacing: 0.06em; }
+      nav.nav-open .nav-links { display: flex; }
+      nav.nav-open .nav-hamburger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      nav.nav-open .nav-hamburger span:nth-child(2) { opacity: 0; }
+      nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+      .hero-title { font-size: 34px; }
+      .section-title { font-size: 30px; }
+      .hero-left { padding: 48px 20px; }
+      section { padding: 48px 20px; }
+      #apropos { padding: 48px 20px; gap: 32px; }
+      #localisation { padding: 48px 20px; }
+      .approche-cards { grid-template-columns: 1fr; }
+      footer { padding: 28px 20px; gap: 16px; }
+    }
+
+    @media (max-width: 420px) {
+      .hero-title { font-size: 28px; }
+      section { padding: 40px 16px; }
+      #apropos { padding: 40px 16px; }
+      #localisation { padding: 40px 16px; }
+    }
+    /* Accent jaune miel */
+    .hero-eyebrow::before, .section-eyebrow::before, .page-header-eyebrow::before, .faq-category-title::before { background: var(--accent); }
+    .hero-title em, .page-header h1 em { color: var(--accent); }
+    .faq-icon svg { color: var(--accent); }
+    .faq-item.open .faq-icon { background: var(--accent); border-color: var(--accent); }
+    .formations-list li::before, .formations-panel li::before, .formations-box li::before { color: var(--accent); }
+    .accomp-list li::before, .accomp-item svg, .row-dash { color: var(--accent); }
+    .local-address { border-left-color: var(--accent); }
+    .hero-right-quote { border-left-color: var(--accent); }
+    .deroulement-box { border-left-color: var(--accent); }
+    .approche-card-n .card-num { color: var(--accent); }  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index-a2.html" class="nav-logo">Emmanuelle Francblu</a>
+    <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#approche">Approche</a></li>
+      <li><a href="#accompagnements">Accompagnements</a></li>
+      <li><a href="#deroulement">Déroulement</a></li>
+      <li><a href="faq-a2.html">FAQ</a></li>
+      <li><a href="#localisation">Localisation</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Cabinet · Paris 11e</div>
+      <h1 class="hero-title">
+        Psychanalyste &<br>praticienne certifiée<br>en <em>hypnose ericksonienne</em>
+      </h1>
+      <p class="hero-sub">
+        Je vous reçois à mon cabinet, au cœur de Paris, dans un espace bienveillant, serein et souvent joyeux où le non-jugement et la confidentialité sont de rigueur.
+      </p>
+      <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
+    </div>
+    <div class="hero-right">
+      <img src="IMG_0800.jpeg" alt="Vue d'ensemble du cabinet — fauteuils jaunes, tapis rond, canapé" />
+      <div class="hero-right-quote">
+        « L'hypnose n'est pas une prise de contrôle — c'est une invitation à s'écouter. »
+      </div>
+    </div>
+  </div>
+
+  <!-- À PROPOS -->
+  <section id="apropos">
+    <div class="apropos-visual">
+      <div class="apropos-photo-frame">
+        <img src="photo.jpeg" alt="Emmanuelle Francblu" />
+      </div>
+    </div>
+    <div class="apropos-content">
+      <div class="section-eyebrow">À propos</div>
+      <h2 class="section-title">Emmanuelle<br>Francblu</h2>
+      <p>Comme tous les psychopraticiens, mon approche s'enracine dans mes expériences et mes formations. J'accompagne des individus et des collectifs pour les aider à dépasser leurs difficultés, développer leur potentiel et acquérir de nouvelles compétences, dans deux cadres très différents : en entreprise depuis 25 ans au travers de ma société PRACTIS, et à mon cabinet pour des séances individuelles ou de couple.</p>
+      <h3 class="formations-title">Formations</h3>
+      <ul class="formations-list">
+        <li>Formation de psychanalyste auprès de la Faculté Libre</li>
+        <li>Certification de praticienne en hypnose ericksonienne auprès de l'A.R.C.H.E.</li>
+        <li>Formation à la MBSR (Mindfulness-Based Stress Reduction) de Jon Kabat-Zinn</li>
+        <li>Formation à l'approche systémique de l'École de Palo Alto auprès de l'I.G.B.</li>
+        <li>Formation à la systémique coopérative auprès d'Altrando (Dr F. Balta)</li>
+        <li>DESU de coaching de Paris 8</li>
+      </ul>
+    </div>
+    <figure class="cabinet-photo">
+      <img src="IMG_0802.jpeg" alt="Le cabinet — canapé, fauteuil jaune, lumière douce" />
+      <figcaption>Le cabinet — 17 boulevard Jules Ferry, Paris 11e</figcaption>
+    </figure>
+  </section>
+
+  <!-- APPROCHE -->
+  <section id="approche">
+    <div class="section-eyebrow">Mon approche</div>
+    <h2 class="section-title">Comment se déroule le travail ?</h2>
+    <p class="approche-intro">L'écoute est centrale, elle est commune à toutes les approches que j'utilise. Externaliser par la parole ce qui se passe en vous, laisser parler vos associations d'idées, vos sensations corporelles, et être écouté de façon qualitative, dans une acceptation inconditionnelle — c'est-à-dire sans jugement ni censure —, constitue une pierre angulaire de la cure. Freud parlait déjà de « Talking cure » au tout début de la psychanalyse.</p>
+    <h3 class="approche-subtitle">Une approche intégrative</h3>
+    <p class="approche-text">La multiplicité des courants auxquels je me suis formée m'a permis de développer une approche intégrative, pour m'ajuster au plus près de vos besoins.</p>
+    <div class="approche-cards">
+      <div class="approche-card">
+        <h3>La psychanalyse</h3>
+        <p>Offre un cadre structuré pour interpréter autrement son histoire et comprendre ses répercussions actuelles : les répétitions de situations inconfortables, les sensations d'être perdu(e)…</p>
+      </div>
+      <div class="approche-card">
+        <h3>L'hypnose</h3>
+        <p>Permet de connecter des ressources enfouies et offre une voie innovante pour reprendre contact avec son corps, ses sensations, sa mémoire, les différentes parties de soi…</p>
+      </div>
+      <div class="approche-card">
+        <h3>Les approches systémiques</h3>
+        <p>Dites « thérapies brèves », elles privilégient la relation comme objet de travail pour sortir des logiques victimaires, communiquer autrement et être plus proche de la personne que l'on souhaite être.</p>
+      </div>
+    </div>
+    <p class="approche-closing">Ma pratique tient compte du meilleur de chaque approche, tout comme j'invite mes patients à intégrer les meilleures parties d'eux-mêmes.</p>
+  </section>
+
+  <!-- ACCOMPAGNEMENTS -->
+  <section id="accompagnements">
+    <div class="section-eyebrow">Accompagnements</div>
+    <h2 class="section-title">Pourquoi venir en consultation ?</h2>
+    <p class="accomp-intro">Les raisons de venir en consultation sont aussi diverses et variées que les individus qui se posent cette question. Grâce à cet accompagnement, vous pourrez :</p>
+    <ul class="accomp-list">
+      <li>Identifier et transformer vos conflits internes</li>
+      <li>Entendre et apaiser vos petites voix intérieures qui vous jugent et vous limitent dans votre liberté de créer la vie qui vous ressemble</li>
+      <li>Repérer vos schémas répétitifs et les interpréter pour vous en affranchir</li>
+      <li>Donner du sens à vos symptômes physiques et apprendre à davantage écouter les signaux de votre corps</li>
+      <li>Utiliser vos angoisses comme des messages plutôt que de vouloir les contenir à tout prix</li>
+      <li>Écouter vos émotions et leur laisser leur juste place dans la relation à soi et aux autres</li>
+      <li>Renouer avec votre désir, vos choix et libérer votre créativité</li>
+    </ul>
+    <p class="accomp-closing">De façon globale, je vous accompagne pour démêler les éléments qui produisent de la souffrance — pour vous-même et, par ricochet, pour votre entourage.</p>
+  </section>
+
+  <!-- DÉROULEMENT -->
+  <section id="deroulement">
+    <div class="section-eyebrow">Déroulement</div>
+    <h2 class="section-title">Comment se déroule une séance ?</h2>
+    <p class="deroulement-text">La psychanalyse, tout comme la systémique, accorde une importance particulière au cadre comme objet de travail en soi. La ou les premières séances permettent de clarifier ensemble votre besoin d'accompagnement. La fréquence et la durée des séances en découleront naturellement.</p>
+    <p class="deroulement-text">Un aménagement de ce cadre pourra se faire en fonction du déroulement des séances, en concertation avec vous.</p>
+  </section>
+
+  <!-- LOCALISATION -->
+  <section id="localisation">
+    <div class="section-eyebrow">Où me trouver</div>
+    <h2 class="section-title">Le cabinet</h2>
+    <div class="local-grid">
+      <div class="local-info">
+        <p class="section-subtitle" style="margin-bottom: 0;">Les séances ont lieu dans un espace confidentiel et apaisant, au cœur du 11e arrondissement de Paris.</p>
+        <div class="local-address">
+          <strong>Cabinet Emmanuelle Francblu</strong>
+          <p>17 boulevard Jules Ferry<br>75011 Paris</p>
+        </div>
+        <div class="local-details">
+          <div class="local-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+            <span>Métro République (lignes 3, 5, 8, 9, 11) ou Oberkampf (lignes 5, 9) — 5 min à pied</span>
+          </div>
+          <div class="local-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <path d="M16 2v4M8 2v4M3 10h18"/>
+            </svg>
+            <span>Sur rendez-vous uniquement — du lundi au samedi</span>
+          </div>
+          <div class="local-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.45 4.36a1 1 0 01-.23 1.02L8.5 11.5a16 16 0 006 6l1.44-1.95a1 1 0 011.02-.23l4.36 1.45a1 1 0 01.68.95V19a2 2 0 01-2 2C9.16 21 3 14.84 3 7V5z"/>
+            </svg>
+            <span>Contact par email ou formulaire ci-dessous</span>
+          </div>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=2.3630%2C48.8670%2C2.3730%2C48.8720&layer=mapnik&marker=48.8695%2C2.3680"
+          allowfullscreen
+          loading="lazy"
+          title="Localisation du cabinet">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-eyebrow">Me contacter</div>
+    <h2 class="section-title">Prenons contact</h2>
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <p>Vous avez une question sur mes séances, ou vous souhaitez prendre un premier rendez-vous ? Je vous réponds dans les 48 heures.</p>
+        <p>La première prise de contact est gratuite et sans engagement. C'est l'occasion de vous présenter, d'expliquer votre démarche et de voir si nous souhaitons travailler ensemble.</p>
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <circle cx="12" cy="11" r="3"/>
+            </svg>
+            17 boulevard Jules Ferry, 75011 Paris
+          </div>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            contact@emmanuelle-francblu.fr
+          </div>
+        </div>
+      </div>
+      <form action="https://formspree.io/f/xkoqbdro" method="POST">
+        <div class="form-group">
+          <label for="nom">Votre nom</label>
+          <input type="text" id="nom" name="nom" placeholder="Prénom Nom" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="vous@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="sujet">Motif de contact</label>
+          <select id="sujet" name="sujet">
+            <option value="">— Sélectionnez —</option>
+            <option>Demande de renseignements</option>
+            <option>Prise de rendez-vous</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Décrivez votre situation ou votre question..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+        <p class="form-note">Vos informations sont confidentielles et ne seront jamais partagées.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Emmanuelle Francblu · Psychanalyste & Hypnothérapeute</span>
+    <ul class="footer-links">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="faq-a2.html">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 · Paris 11e</span>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.nav-hamburger');
+    const nav = document.querySelector('nav');
+    hamburger.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav-open');
+      hamburger.setAttribute('aria-expanded', open);
+      hamburger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('nav-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
+      });
+    });
+  </script>
+</body>
+</html>
