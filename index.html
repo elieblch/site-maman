@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emmanuelle Francblu — Psychanalyste & Hypnothérapeute à Paris</title>
+  <title>Emmanuelle Francblu Blecher — Psychanalyste & Hypnothérapeute à Paris</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -29,6 +29,7 @@
 
     html { scroll-behavior: smooth; }
 
+    html, body { overflow-x: hidden; max-width: 100%; }
     body {
       font-family: var(--sans);
       background: var(--warm-white);
@@ -36,6 +37,7 @@
       font-size: 16px;
       line-height: 1.7;
     }
+    img, iframe { max-width: 100%; }
 
     /* ─── NAV ─── */
     nav {
@@ -172,6 +174,18 @@
       color: var(--text-mid);
       line-height: 1.8;
       max-width: 440px;
+      margin-bottom: 20px;
+    }
+    .hero-quote {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--terra-dark);
+      line-height: 1.6;
+      max-width: 460px;
+      padding-left: 16px;
+      border-left: 2px solid var(--accent);
       margin-bottom: 40px;
     }
     .btn {
@@ -261,7 +275,7 @@
     .apropos-visual { position: relative; }
     .apropos-photo-frame {
       width: 100%;
-      aspect-ratio: 3/4;
+      aspect-ratio: 4/5;
       background: var(--beige);
       border-radius: 4px;
       overflow: hidden;
@@ -269,7 +283,9 @@
     .apropos-photo-frame img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
+      background: var(--beige);
       display: block;
     }
     .apropos-content p {
@@ -615,6 +631,17 @@
     .hero-left .btn { animation: fadeUp 0.6s 0.3s ease both; }
 
     /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 40px; }
+      .nav-links { gap: 24px; }
+      .hero-left { padding: 64px 40px; }
+      section { padding: 80px 40px; }
+      #apropos { padding: 80px 40px; gap: 56px; }
+      #localisation { padding: 80px 40px; }
+      .hero-title { font-size: 46px; }
+      .section-title { font-size: 36px; }
+    }
+
     @media (max-width: 900px) {
       nav { padding: 0 32px; }
       .nav-links { gap: 20px; }
@@ -622,13 +649,16 @@
       .hero-right { display: none; }
       .hero-left { padding: 64px 32px; }
       .hero-title { font-size: 44px; }
+      .hero-quote { font-size: 16px; max-width: 100%; }
       section { padding: 72px 32px; }
       #apropos { grid-template-columns: 1fr; padding: 72px 32px; gap: 48px; }
+      .apropos-photo-frame { max-width: 360px; margin: 0 auto; }
       #localisation { padding: 72px 32px; }
-      .approche-cards { grid-template-columns: 1fr; }
-      .local-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
+      .approche-cards { grid-template-columns: 1fr; gap: 20px; }
+      .local-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px; }
+      .cabinet-photo img { height: 280px; }
     }
 
     @media (max-width: 768px) {
@@ -659,18 +689,49 @@
       .hero-title { font-size: 34px; }
       .section-title { font-size: 30px; }
       .hero-left { padding: 48px 20px; }
+      .hero-quote { font-size: 15px; padding-left: 14px; }
       section { padding: 48px 20px; }
       #apropos { padding: 48px 20px; gap: 32px; }
+      .apropos-photo-frame { max-width: 320px; }
       #localisation { padding: 48px 20px; }
       .approche-cards { grid-template-columns: 1fr; }
+      .approche-card { padding: 28px 22px; }
       footer { padding: 28px 20px; gap: 16px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 18px; }
+      .cabinet-photo img { height: 220px; }
+      .local-address { padding: 20px 22px; }
+      .btn { padding: 12px 28px; }
     }
 
     @media (max-width: 420px) {
       .hero-title { font-size: 28px; }
+      .hero-eyebrow { font-size: 10px; }
+      .section-title { font-size: 26px; }
+      .approche-subtitle { font-size: 22px; }
       section { padding: 40px 16px; }
       #apropos { padding: 40px 16px; }
       #localisation { padding: 40px 16px; }
+      .hero-left { padding: 36px 16px; }
+      .hero-quote { font-size: 14px; line-height: 1.5; }
+      .hero-sub { font-size: 14px; }
+      .formations-list li, .accomp-list li { font-size: 13.5px; }
+      .approche-card h3 { font-size: 20px; }
+      .local-detail span { font-size: 13.5px; }
+      .contact-info-item { font-size: 13.5px; }
+      input[type="text"], input[type="email"], input[type="tel"], textarea, select { font-size: 16px; }
+      .btn { width: 100%; text-align: center; padding: 14px 24px; }
+    }
+
+    @media (max-width: 375px) {
+      .hero-title { font-size: 26px; }
+      .section-title { font-size: 24px; }
+      nav { padding: 0 16px; }
+      .nav-logo { font-size: 16px; }
+      section { padding: 36px 14px; }
+      #apropos { padding: 36px 14px; }
+      #localisation { padding: 36px 14px; }
+      .hero-left { padding: 32px 14px; }
+      footer { padding: 24px 14px; }
     }
     /* Accent jaune miel */
     .hero-eyebrow::before, .section-eyebrow::before, .page-header-eyebrow::before, .faq-category-title::before { background: var(--accent); }
@@ -688,7 +749,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="index-a2.html" class="nav-logo">Emmanuelle Francblu</a>
+    <a href="index-a2.html" class="nav-logo">Emmanuelle Francblu Blecher</a>
     <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -706,12 +767,15 @@
   <!-- HERO -->
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-eyebrow">Cabinet · Paris 11e</div>
+      <div class="hero-eyebrow">Cabinet · Paris 11e République</div>
       <h1 class="hero-title">
         Psychanalyste &<br>praticienne certifiée<br>en <em>hypnose ericksonienne</em>
       </h1>
       <p class="hero-sub">
-        Je vous reçois à mon cabinet, au cœur de Paris, dans un espace bienveillant, serein et souvent joyeux où le non-jugement et la confidentialité sont de rigueur.
+        Je vous reçois à mon cabinet, au cœur de Paris, dans un espace bienveillant, serein et souvent joyeux où le non-jugement et la confidentialité sont de rigueur. Des séances en visio sont également organisées.
+      </p>
+      <p class="hero-quote">
+        « Faire une psychanalyse c'est venir en allant mal et repartir en vivant mieux » — S. Freud
       </p>
       <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
     </div>
@@ -727,13 +791,15 @@
   <section id="apropos">
     <div class="apropos-visual">
       <div class="apropos-photo-frame">
-        <img src="photo.jpeg" alt="Emmanuelle Francblu" />
+        <img src="photo.jpeg" alt="Emmanuelle Francblu Blecher" />
       </div>
     </div>
     <div class="apropos-content">
       <div class="section-eyebrow">À propos</div>
-      <h2 class="section-title">Emmanuelle<br>Francblu</h2>
-      <p>Comme tous les psychopraticiens, mon approche s'enracine dans mes expériences et mes formations. J'accompagne des individus et des collectifs pour les aider à dépasser leurs difficultés, développer leur potentiel et acquérir de nouvelles compétences, dans deux cadres très différents : en entreprise depuis 25 ans au travers de ma société PRACTIS, et à mon cabinet pour des séances individuelles ou de couple.</p>
+      <h2 class="section-title">Emmanuelle<br>Francblu Blecher</h2>
+      <p>Comme tous les psychopraticiens, mon approche s'enracine dans les formations que j'ai suivies et les expériences que j'ai vécues. J'accompagne des individus et des collectifs pour les aider à dépasser leurs difficultés, développer leur potentiel et acquérir de nouvelles compétences, dans deux cadres très différents : en entreprise depuis 25 ans au travers de ma société PRACTIS, et à mon cabinet pour des séances individuelles ou de couple.</p>
+      <p>Accompagnée en psychanalyse pendant plusieurs années, j'ai tiré de nombreux enseignements et bienfaits de ces séances mais aussi connu les frustrations liées aux silences du praticien ou à la durée de la cure qui me paraissait interminable…</p>
+      <p>C'est pourquoi je pratique une psychanalyse active et moderne, favorisant les interactions entre nous, m'autorisant à intégrer des courants qui « boostent » votre cure car l'objectif est que vous vous sentiez mieux et rapidement. L'hypnose et les approches systémiques dites « thérapies brèves » s'intègrent à ma démarche psychanalytique qui se veut dynamique et plus rapide.</p>
       <h3 class="formations-title">Formations</h3>
       <ul class="formations-list">
         <li>Formation de psychanalyste auprès de la Faculté Libre</li>
@@ -752,9 +818,9 @@
 
   <!-- APPROCHE -->
   <section id="approche">
-    <div class="section-eyebrow">Mon approche</div>
+    <div class="section-eyebrow">Approche</div>
     <h2 class="section-title">Comment se déroule le travail ?</h2>
-    <p class="approche-intro">L'écoute est centrale, elle est commune à toutes les approches que j'utilise. Externaliser par la parole ce qui se passe en vous, laisser parler vos associations d'idées, vos sensations corporelles, et être écouté de façon qualitative, dans une acceptation inconditionnelle — c'est-à-dire sans jugement ni censure —, constitue une pierre angulaire de la cure. Freud parlait déjà de « Talking cure » au tout début de la psychanalyse.</p>
+    <p class="approche-intro">L'écoute est centrale, elle est commune à toutes les approches que j'utilise. Externaliser par la parole ce qui se passe en vous, laisser parler vos associations d'idées, vos sensations corporelles, et être écouté-e de façon qualitative, dans une acceptation inconditionnelle — c'est-à-dire sans jugement ni censure —, constitue une pierre angulaire de la cure. Freud parlait déjà de « Talking cure » au tout début de la psychanalyse.</p>
     <h3 class="approche-subtitle">Une approche intégrative</h3>
     <p class="approche-text">La multiplicité des courants auxquels je me suis formée m'a permis de développer une approche intégrative, pour m'ajuster au plus près de vos besoins.</p>
     <div class="approche-cards">
@@ -807,7 +873,7 @@
       <div class="local-info">
         <p class="section-subtitle" style="margin-bottom: 0;">Les séances ont lieu dans un espace confidentiel et apaisant, au cœur du 11e arrondissement de Paris.</p>
         <div class="local-address">
-          <strong>Cabinet Emmanuelle Francblu</strong>
+          <strong>Cabinet Emmanuelle Francblu Blecher</strong>
           <p>17 boulevard Jules Ferry<br>75011 Paris</p>
         </div>
         <div class="local-details">
@@ -815,7 +881,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
               <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m0 0L9 7"/>
             </svg>
-            <span>Métro République (lignes 3, 5, 8, 9, 11) ou Oberkampf (lignes 5, 9) — 5 min à pied</span>
+            <span>Métro République (2 min à pied) — lignes 3, 5, 8, 9, 11</span>
           </div>
           <div class="local-detail">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
@@ -863,7 +929,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
               <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
-            contact@emmanuelle-francblu.fr
+            efb@relations-psy.fr
           </div>
         </div>
       </div>
@@ -897,7 +963,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-logo">Emmanuelle Francblu · Psychanalyste & Hypnothérapeute</span>
+    <span class="footer-logo">Emmanuelle Francblu Blecher · Psychanalyste & Hypnothérapeute</span>
     <ul class="footer-links">
       <li><a href="#apropos">À propos</a></li>
       <li><a href="faq-a2.html">FAQ</a></li>

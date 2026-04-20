@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ — Emmanuelle Francblu · Psychanalyste & Hypnothérapeute</title>
+  <title>FAQ — Emmanuelle Francblu Blecher · Psychanalyste & Hypnothérapeute</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -27,6 +27,8 @@
       --sans:  'Jost', sans-serif;
     }
 
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: hidden; max-width: 100%; }
     body {
       font-family: var(--sans);
       background: var(--warm-white);
@@ -298,6 +300,15 @@
     }
     .page-header { animation: fadeUp 0.5s ease both; }
 
+    @media (max-width: 1024px) {
+      nav { padding: 0 40px; }
+      .nav-links { gap: 24px; }
+      .page-header { padding: 70px 40px 60px; }
+      .page-header h1 { font-size: 44px; }
+      .faq-main { padding: 64px 40px; }
+      .faq-cta { padding: 64px 40px; }
+    }
+
     @media (max-width: 900px) {
       nav { padding: 0 32px; }
       .page-header { padding: 60px 32px 56px; }
@@ -305,6 +316,7 @@
       .faq-main { padding: 56px 32px; }
       .faq-cta { padding: 56px 32px; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 18px; }
     }
 
     @media (max-width: 768px) {
@@ -349,6 +361,20 @@
       .faq-main { padding: 32px 16px; }
       .faq-cta { padding: 40px 16px; }
       .faq-question { padding: 20px 0; font-size: 16px; }
+      .faq-cta h2 { font-size: 24px; }
+      .btn { width: 100%; max-width: 300px; }
+      .btn-outline { margin-left: 0; margin-top: 12px; }
+    }
+
+    @media (max-width: 375px) {
+      nav { padding: 0 16px; }
+      .nav-logo { font-size: 16px; }
+      .page-header h1 { font-size: 24px; }
+      .page-header { padding: 36px 14px 28px; }
+      .faq-main { padding: 28px 14px; }
+      .faq-cta { padding: 36px 14px; }
+      .faq-question { font-size: 15.5px; }
+      footer { padding: 24px 14px; }
     }
     /* Accent jaune miel */
     .hero-eyebrow::before, .section-eyebrow::before, .page-header-eyebrow::before, .faq-category-title::before { background: var(--accent); }
@@ -365,7 +391,7 @@
 <body>
 
   <nav>
-    <a href="index-a2.html" class="nav-logo">Emmanuelle Francblu</a>
+    <a href="index-a2.html" class="nav-logo">Emmanuelle Francblu Blecher</a>
     <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -456,7 +482,7 @@
   </div>
 
   <footer>
-    <span class="footer-logo">Emmanuelle Francblu · Psychanalyste & Hypnothérapeute</span>
+    <span class="footer-logo">Emmanuelle Francblu Blecher · Psychanalyste & Hypnothérapeute</span>
     <ul class="footer-links">
       <li><a href="index-a2.html#apropos">À propos</a></li>
       <li><a href="faq-a2.html">FAQ</a></li>
