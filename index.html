@@ -404,6 +404,26 @@
 
     /* ─── ACCOMPAGNEMENTS ─── */
     #accompagnements { background: var(--warm-white); }
+    .accomp-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .accomp-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+      overflow: hidden;
+      position: sticky;
+      top: 96px;
+    }
+    .accomp-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .accomp-intro {
       font-size: 15px;
       font-weight: 300;
@@ -655,6 +675,8 @@
       .apropos-photo-frame { max-width: 360px; margin: 0 auto; }
       #localisation { padding: 72px 32px; }
       .approche-cards { grid-template-columns: 1fr; gap: 20px; }
+      .accomp-grid { grid-template-columns: 1fr; gap: 40px; }
+      .accomp-image { position: static; aspect-ratio: 4/3; }
       .local-grid { grid-template-columns: 1fr; gap: 40px; }
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px; }
@@ -777,7 +799,7 @@
       <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
     </div>
     <div class="hero-right">
-      <img src="IMG_0800.jpeg" alt="Vue d'ensemble du cabinet — fauteuils jaunes, tapis rond, canapé" />
+      <img src="Bureau1.jpg" alt="Vue d'ensemble du cabinet — fauteuils jaunes, tapis rond, canapé" />
     </div>
   </div>
 
@@ -805,7 +827,7 @@
       </ul>
     </div>
     <figure class="cabinet-photo">
-      <img src="IMG_0802.jpeg" alt="Le cabinet — canapé, fauteuil jaune, lumière douce" />
+      <img src="Bureau2.jpg" alt="Le cabinet — canapé, fauteuil jaune, lumière douce" />
       <figcaption>Le cabinet — 17 boulevard Jules Ferry, Paris 11e</figcaption>
     </figure>
   </section>
@@ -838,17 +860,24 @@
   <section id="accompagnements">
     <div class="section-eyebrow">Accompagnements</div>
     <h2 class="section-title">Pourquoi venir en consultation ?</h2>
-    <p class="accomp-intro">Les raisons de venir en consultation sont aussi diverses et variées que les individus qui se posent cette question. Grâce à cet accompagnement, vous pourrez :</p>
-    <ul class="accomp-list">
-      <li>Identifier et transformer vos conflits internes</li>
-      <li>Entendre et apaiser vos petites voix intérieures qui vous jugent et vous limitent dans votre liberté de créer la vie qui vous ressemble</li>
-      <li>Repérer vos schémas répétitifs et les interpréter pour vous en affranchir</li>
-      <li>Donner du sens à vos symptômes physiques et apprendre à davantage écouter les signaux de votre corps</li>
-      <li>Utiliser vos angoisses comme des messages plutôt que de vouloir les contenir à tout prix</li>
-      <li>Écouter vos émotions et leur laisser leur juste place dans la relation à soi et aux autres</li>
-      <li>Renouer avec votre désir, vos choix et libérer votre créativité</li>
-    </ul>
-    <p class="accomp-closing">De façon globale, je vous accompagne pour démêler les éléments qui produisent de la souffrance — pour vous-même et, par ricochet, pour votre entourage.</p>
+    <div class="accomp-grid">
+      <div class="accomp-text">
+        <p class="accomp-intro">Les raisons de venir en consultation sont aussi diverses et variées que les individus qui se posent cette question. Grâce à cet accompagnement, vous pourrez :</p>
+        <ul class="accomp-list">
+          <li>Identifier et transformer vos conflits internes</li>
+          <li>Entendre et apaiser vos petites voix intérieures qui vous jugent et vous limitent dans votre liberté de créer la vie qui vous ressemble</li>
+          <li>Repérer vos schémas répétitifs et les interpréter pour vous en affranchir</li>
+          <li>Donner du sens à vos symptômes physiques et apprendre à davantage écouter les signaux de votre corps</li>
+          <li>Utiliser vos angoisses comme des messages plutôt que de vouloir les contenir à tout prix</li>
+          <li>Écouter vos émotions et leur laisser leur juste place dans la relation à soi et aux autres</li>
+          <li>Renouer avec votre désir, vos choix et libérer votre créativité</li>
+        </ul>
+        <p class="accomp-closing">De façon globale, je vous accompagne pour démêler les éléments qui produisent de la souffrance — pour vous-même et, par ricochet, pour votre entourage.</p>
+      </div>
+      <div class="accomp-image">
+        <img src="Exterieur.jpg" alt="Extérieur du cabinet — 17 boulevard Jules Ferry, Paris 11e" />
+      </div>
+    </div>
   </section>
 
   <!-- DÉROULEMENT -->
