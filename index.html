@@ -34,7 +34,7 @@
       font-family: var(--sans);
       background: var(--warm-white);
       color: var(--text);
-      font-size: 16px;
+      font-size: 1.05rem;
       line-height: 1.7;
     }
     img, iframe { max-width: 100%; }
@@ -131,7 +131,7 @@
       z-index: 1;
       padding: 40px;
       font-family: var(--serif);
-      font-size: 15px;
+      font-size: 1.05rem;
       font-style: italic;
       color: #fff;
       line-height: 1.8;
@@ -169,7 +169,7 @@
       color: var(--terra);
     }
     .hero-sub {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.8;
@@ -247,7 +247,7 @@
       margin-bottom: 16px;
     }
     .section-subtitle {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       max-width: 520px;
@@ -255,7 +255,7 @@
       line-height: 1.8;
     }
     .section-text {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.9;
@@ -289,7 +289,7 @@
       display: block;
     }
     .apropos-content p {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.9;
@@ -346,7 +346,7 @@
     /* ─── APPROCHE ─── */
     #approche { background: var(--beige); }
     .approche-intro {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.9;
@@ -361,7 +361,7 @@
       margin-bottom: 12px;
     }
     .approche-text {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.9;
@@ -394,7 +394,7 @@
       line-height: 1.8;
     }
     .approche-closing {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.9;
@@ -405,27 +405,31 @@
     /* ─── ACCOMPAGNEMENTS ─── */
     #accompagnements { background: var(--warm-white); }
     .accomp-grid {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 56px;
-      align-items: start;
+      display: flex;
+      align-items: flex-start;
+      gap: 3.5rem;
+    }
+    .accomp-text {
+      flex: 1 1 auto;
+      min-width: 0;
     }
     .accomp-image {
-      width: 100%;
+      flex: 0 0 35%;
+      max-width: 35%;
+      max-height: 500px;
       aspect-ratio: 4/5;
-      border-radius: 4px;
+      border-radius: 8px;
       overflow: hidden;
-      position: sticky;
-      top: 96px;
     }
     .accomp-image img {
       width: 100%;
       height: 100%;
+      max-height: 500px;
       object-fit: cover;
       display: block;
     }
     .accomp-intro {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.9;
@@ -439,7 +443,7 @@
       margin-bottom: 40px;
     }
     .accomp-list li {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.8;
@@ -455,7 +459,7 @@
       font-weight: 500;
     }
     .accomp-closing {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.9;
@@ -465,7 +469,7 @@
     /* ─── DÉROULEMENT ─── */
     #deroulement { background: var(--beige); }
     .deroulement-text {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.9;
@@ -489,7 +493,7 @@
       border-radius: 0 4px 4px 0;
     }
     .local-address p {
-      font-size: 15px;
+      font-size: 1.05rem;
       color: var(--text-mid);
       font-weight: 300;
       line-height: 1.8;
@@ -546,7 +550,7 @@
       align-items: start;
     }
     .contact-intro p {
-      font-size: 15px;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.9;
@@ -675,8 +679,9 @@
       .apropos-photo-frame { max-width: 360px; margin: 0 auto; }
       #localisation { padding: 72px 32px; }
       .approche-cards { grid-template-columns: 1fr; gap: 20px; }
-      .accomp-grid { grid-template-columns: 1fr; gap: 40px; }
-      .accomp-image { position: static; aspect-ratio: 4/3; }
+      .accomp-grid { flex-direction: column; gap: 40px; }
+      .accomp-image { flex: 1 1 auto; max-width: 100%; max-height: none; aspect-ratio: 4/3; }
+      .accomp-image img { max-height: none; }
       .local-grid { grid-template-columns: 1fr; gap: 40px; }
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px; }
@@ -711,7 +716,7 @@
       .hero-title { font-size: 34px; }
       .section-title { font-size: 30px; }
       .hero-left { padding: 48px 20px; }
-      .hero-quote { font-size: 15px; padding-left: 14px; }
+      .hero-quote { font-size: 1.05rem; padding-left: 14px; }
       section { padding: 48px 20px; }
       #apropos { padding: 48px 20px; gap: 32px; }
       .apropos-photo-frame { max-width: 320px; }
