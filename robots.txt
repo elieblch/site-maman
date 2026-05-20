@@ -1,0 +1,19 @@
+# robots.txt — Cabinet Emmanuelle Francblu Blecher
+# Psychanalyste & Hypno-praticienne · Paris 11e République
+#
+# ÉTAT PROVISOIRE : DISALLOW TOTAL pendant la phase preview Vercel.
+# Le site est servi sur https://site-maman.vercel.app/ uniquement pour
+# validation interne par la praticienne pendant la phase de relecture.
+#
+# Le jour de la bascule sur le domaine custom (ex : relations-psy.fr),
+# remplacer le contenu de ce fichier par la version production documentée
+# dans MIGRATION-DOMAINE.md.
+#
+# Last updated: 2026-05-20
+
+User-agent: *
+Disallow: /
+
+# Sitemap reste référencé : non crawlé tant que Disallow: / est actif,
+# mais prêt pour le jour de la bascule.
+Sitemap: https://site-maman.vercel.app/sitemap.xml

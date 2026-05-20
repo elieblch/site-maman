@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor / OS noise
+*.swp
+Thumbs.db
+
+# Sources brutes lourdes (les WebP sont versionnés à la place)
+*.heic
+
+# Notes locales non publiques
+Captures DNS/
+*.bak
+*.tmp

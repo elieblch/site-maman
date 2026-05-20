@@ -1,182 +1,12 @@
 <!DOCTYPE html>
-<!--
-  =====================================================================
-  @canonical-domain: https://site-maman.vercel.app
-  → URL provisoire (preview Vercel). Le jour où un domaine custom est
-    branché (ex: https://relations-psy.fr), mettre à jour TOUTES les
-    occurrences via :
-
-    grep -rln "site-maman.vercel.app" . | xargs sed -i '' \
-      's|https://site-maman.vercel.app|https://NOUVEAU-DOMAINE|g'
-
-    Endroits concernés (voir MIGRATION-DOMAINE.md) :
-    - <link rel="canonical">      (head)
-    - og:url                      (Open Graph)
-    - JSON-LD : @id, url, logo, image (8+ occurrences dans @graph)
-    - sitemap.xml
-    - robots.txt                  (Sitemap: line)
-
-    Voir MIGRATION-DOMAINE.md pour la procédure complète.
-  =====================================================================
--->
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#3D6B50">
-<title>Psychanalyste & Hypnose Paris 11 · E. Francblu Blecher</title>
-<meta name="description" content="Emmanuelle Francblu Blecher, psychanalyste et hypno-praticienne à Paris 11 (République). Cabinet sur RDV, visio possible. Premier contact gratuit.">
-
-<!-- PROVISOIRE preview Vercel : noindex pour éviter d'indexer la preview Vercel.
-     🔴 À RETIRER le jour de la bascule sur le domaine custom (voir MIGRATION-DOMAINE.md). -->
-<meta name="robots" content="noindex, nofollow">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://site-maman.vercel.app/">
-
-<!-- Preload LCP : hero image responsive (critical perf)
-     Sur mobile (< 900px) le hero-right est en display:none → on évite le préload inutile. -->
-<link rel="preload" as="image"
-  imagesrcset="/Bureau1-600.webp 600w, /Bureau1-1200.webp 1200w"
-  imagesizes="(max-width: 900px) 0px, 50vw"
-  type="image/webp" fetchpriority="high">
-
-<!-- Favicon & app icons -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Cabinet Emmanuelle Francblu Blecher">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://site-maman.vercel.app/">
-<meta property="og:title" content="Psychanalyste & Hypnose Paris 11 · E. Francblu Blecher">
-<meta property="og:description" content="Emmanuelle Francblu Blecher, psychanalyste et hypno-praticienne à Paris 11 (République). Cabinet sur RDV, visio possible. Premier contact gratuit.">
-<meta property="og:image" content="https://site-maman.vercel.app/og-image.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cabinet d'Emmanuelle Francblu Blecher — psychanalyste et hypno-praticienne à Paris 11e République">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Psychanalyste & Hypnose Paris 11 · E. Francblu Blecher">
-<meta name="twitter:description" content="Cabinet de psychanalyse et hypnose ericksonienne à Paris 11 (République). Sur RDV, visio possible.">
-<meta name="twitter:image" content="https://site-maman.vercel.app/og-image.jpg">
-<meta name="twitter:image:alt" content="Cabinet d'Emmanuelle Francblu Blecher à Paris 11e République">
-
-<!-- Google Fonts async (Fraunces + Inter) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
-
-<!-- Schema.org : Person + ProfessionalService + WebSite (JSON-LD) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://site-maman.vercel.app/#emmanuelle",
-      "name": "Emmanuelle Francblu Blecher",
-      "jobTitle": "Psychanalyste · Praticienne certifiée en hypnose ericksonienne",
-      "description": "Psychanalyste et hypno-praticienne à Paris 11e (République). Approche intégrative : psychanalyse, hypnose ericksonienne, approches systémiques (École de Palo Alto), MBSR.",
-      "url": "https://site-maman.vercel.app/",
-      "image": "https://site-maman.vercel.app/photo.webp",
-      "telephone": "+33616984678",
-      "email": "efb@relations-psy.fr",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "17 boulevard Jules Ferry",
-        "addressLocality": "Paris",
-        "addressRegion": "Île-de-France",
-        "postalCode": "75011",
-        "addressCountry": "FR"
-      },
-      "alumniOf": [
-        {"@type": "EducationalOrganization", "name": "Faculté Libre de Paris (psychanalyse)"},
-        {"@type": "EducationalOrganization", "name": "A.R.C.H.E. — Académie de Recherche et Connaissance en Hypnose Ericksonienne"},
-        {"@type": "EducationalOrganization", "name": "I.G.B. — Institut Gregory Bateson (École de Palo Alto)"},
-        {"@type": "EducationalOrganization", "name": "Altrando (systémique coopérative, Dr F. Balta)"},
-        {"@type": "EducationalOrganization", "name": "Université Paris 8 (DESU de coaching)"},
-        {"@type": "EducationalOrganization", "name": "MBSR — programme de Jon Kabat-Zinn"}
-      ],
-      "knowsAbout": [
-        "Psychanalyse",
-        "Hypnose ericksonienne",
-        "Approches systémiques",
-        "Thérapies brèves",
-        "École de Palo Alto",
-        "MBSR (Mindfulness-Based Stress Reduction)",
-        "Coaching"
-      ],
-      "worksFor": {"@id": "https://site-maman.vercel.app/#cabinet"}
-    },
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://site-maman.vercel.app/#cabinet",
-      "name": "Cabinet Emmanuelle Francblu Blecher — Psychanalyste & Hypno-praticienne",
-      "alternateName": "Cabinet Francblu Blecher",
-      "description": "Cabinet de psychanalyse et d'hypnose ericksonienne au cœur du 11e arrondissement de Paris, à 2 minutes du métro République. Sur rendez-vous, du lundi au samedi. Téléconsultation possible.",
-      "url": "https://site-maman.vercel.app/",
-      "logo": "https://site-maman.vercel.app/favicon.svg",
-      "image": [
-        "https://site-maman.vercel.app/og-image.jpg",
-        "https://site-maman.vercel.app/Bureau1-1200.webp",
-        "https://site-maman.vercel.app/Bureau2.webp"
-      ],
-      "telephone": "+33616984678",
-      "email": "efb@relations-psy.fr",
-      "priceRange": "€€",
-      "currenciesAccepted": "EUR",
-      "paymentAccepted": "Espèces, Chèque, Virement bancaire",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "17 boulevard Jules Ferry",
-        "addressLocality": "Paris",
-        "addressRegion": "Île-de-France",
-        "postalCode": "75011",
-        "addressCountry": "FR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 48.8666,
-        "longitude": 2.3681
-      },
-      "areaServed": [
-        {"@type": "AdministrativeArea", "name": "Paris 11e arrondissement"},
-        {"@type": "AdministrativeArea", "name": "Paris"},
-        {"@type": "AdministrativeArea", "name": "Île-de-France"}
-      ],
-      "hasMap": "https://www.google.com/maps?q=17+boulevard+Jules+Ferry+75011+Paris",
-      "founder": {"@id": "https://site-maman.vercel.app/#emmanuelle"},
-      "employee": {"@id": "https://site-maman.vercel.app/#emmanuelle"},
-      "availableService": [
-        {"@type": "Service", "name": "Séance de psychanalyse", "serviceType": "Psychanalyse"},
-        {"@type": "Service", "name": "Séance d'hypnose ericksonienne", "serviceType": "Hypnose ericksonienne"},
-        {"@type": "Service", "name": "Thérapie brève / approche systémique", "serviceType": "Thérapie brève"},
-        {"@type": "Service", "name": "Consultation en visioconférence", "serviceType": "Téléconsultation"}
-      ],
-      "potentialAction": {
-        "@type": "ReserveAction",
-        "name": "Prendre rendez-vous",
-        "target": {"@type": "EntryPoint", "urlTemplate": "tel:+33616984678"}
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://site-maman.vercel.app/#website",
-      "url": "https://site-maman.vercel.app/",
-      "name": "Cabinet Emmanuelle Francblu Blecher — Psychanalyste & Hypno-praticienne Paris 11",
-      "inLanguage": "fr-FR",
-      "publisher": {"@id": "https://site-maman.vercel.app/#cabinet"}
-    }
-  ]
-}
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emmanuelle Francblu Blecher — Psychanalyste & Hypno-praticienne à Paris</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -193,8 +23,8 @@
       --text-mid:  #3D6B50;
       --text-light:#5F8C6E;
       --accent:    #E8C84A;
-      --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
-      --sans:  'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -314,7 +144,7 @@
       font-size: 1.25rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--terra-dark);
+      color: var(--terra);
       margin-bottom: 24px;
       display: flex;
       align-items: center;
@@ -325,7 +155,7 @@
       display: inline-block;
       width: 32px;
       height: 1px;
-      background: var(--terra-dark);
+      background: var(--terra);
     }
     .hero-title {
       font-family: var(--serif);
@@ -334,13 +164,10 @@
       line-height: 1.15;
       color: var(--brown);
       margin-bottom: 28px;
-      overflow-wrap: break-word;
-      hyphens: auto;
     }
-    .section-title { overflow-wrap: break-word; }
     .hero-title em {
       font-style: italic;
-      color: var(--terra-dark);
+      color: var(--terra);
     }
     .hero-sub {
       font-size: 1.25rem;
@@ -375,13 +202,13 @@
       transition: all 0.25s;
     }
     .btn-primary {
-      background: var(--terra-dark);
+      background: var(--terra);
       color: var(--warm-white);
-      border: 1px solid var(--terra-dark);
+      border: 1px solid var(--terra);
     }
     .btn-primary:hover {
-      background: var(--brown);
-      border-color: var(--brown);
+      background: var(--terra-dark);
+      border-color: var(--terra-dark);
     }
     .btn-outline {
       background: transparent;
@@ -399,7 +226,7 @@
       font-size: 1.3rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--terra-dark);
+      color: var(--terra);
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -410,7 +237,7 @@
       display: inline-block;
       width: 24px;
       height: 1px;
-      background: var(--terra-dark);
+      background: var(--terra);
     }
     .section-title {
       font-family: var(--serif);
@@ -513,7 +340,7 @@
       font-style: italic;
       font-size: 1.1rem;
       font-weight: 300;
-      color: var(--text-mid);
+      color: var(--text-light);
       margin-top: 12px;
     }
 
@@ -791,7 +618,7 @@
     .form-note {
       font-size: 0.9rem;
       font-weight: 300;
-      color: var(--text-mid);
+      color: var(--text-light);
       margin-top: 12px;
       line-height: 1.6;
     }
@@ -825,17 +652,7 @@
       transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--terra-pale); }
-    .footer-copy { font-size: 0.95rem; font-weight: 300; color: var(--beige-dark); }
-    .footer-brand, .footer-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .footer-meta { text-align: right; align-items: flex-end; }
-    .footer-tag { font-size: 0.85rem; font-weight: 300; color: var(--terra-pale); letter-spacing: 0.04em; }
-    .footer-credit { font-size: 0.85rem; font-weight: 300; color: var(--terra-pale); letter-spacing: 0.02em; }
-    .footer-credit a { color: var(--warm-white); text-decoration: underline; text-decoration-color: var(--terra-pale); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
-    .footer-credit a:hover { text-decoration-color: var(--warm-white); }
+    .footer-copy { font-size: 0.95rem; font-weight: 300; color: var(--text-light); }
 
     /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
@@ -878,7 +695,6 @@
       .local-grid { grid-template-columns: 1fr; gap: 40px; }
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px; }
-      .footer-brand, .footer-meta { align-items: center; text-align: center; }
       .cabinet-photo img { height: 440px; }
     }
 
@@ -925,33 +741,33 @@
     }
 
     @media (max-width: 420px) {
-      .hero-title { font-size: 36px; }
+      .hero-title { font-size: 40px; }
       .hero-eyebrow { font-size: 1.05rem; }
-      .section-title { font-size: 28px; }
-      .approche-subtitle { font-size: 24px; }
+      .section-title { font-size: 30px; }
+      .approche-subtitle { font-size: 26px; }
       section { padding: 48px 16px; }
       #apropos { padding: 48px 16px; }
       #localisation { padding: 48px 16px; }
       .hero-left { padding: 36px 16px; }
       .hero-quote { line-height: 1.5; }
-      .approche-card h3 { font-size: 22px; }
+      .approche-card h3 { font-size: 24px; }
       .btn { width: 100%; text-align: center; padding: 14px 24px; }
     }
 
     @media (max-width: 375px) {
-      .hero-title { font-size: 30px; }
-      .section-title { font-size: 24px; }
-      .nav-logo { font-size: 1.05rem; }
-      nav { padding: 0 14px; }
-      section { padding: 44px 14px; }
-      #apropos { padding: 44px 14px; }
-      #localisation { padding: 44px 14px; }
-      .hero-left { padding: 28px 14px; }
+      .hero-title { font-size: 36px; }
+      .section-title { font-size: 28px; }
+      nav { padding: 0 16px; }
+      .nav-logo { font-size: 1.25rem; }
+      section { padding: 48px 14px; }
+      #apropos { padding: 48px 14px; }
+      #localisation { padding: 48px 14px; }
+      .hero-left { padding: 32px 14px; }
       footer { padding: 24px 14px; }
     }
-    /* Accent jaune miel — uniquement sur éléments décoratifs (barres, bordures, puces),
-       JAMAIS sur du texte porteur d'info → contraste WCAG préservé. */
+    /* Accent jaune miel */
     .hero-eyebrow::before, .section-eyebrow::before, .page-header-eyebrow::before { background: var(--accent); }
+    .hero-title em, .page-header h1 em { color: var(--accent); }
     .formations-list li::before, .formations-panel li::before, .formations-box li::before { color: var(--accent); }
     .accomp-list li::before, .accomp-item svg, .row-dash { color: var(--accent); }
     .local-address { border-left-color: var(--accent); }
@@ -1010,7 +826,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="/" class="nav-logo" aria-label="Accueil — Cabinet Emmanuelle Francblu Blecher, psychanalyste & hypno-praticienne Paris 11">Emmanuelle Francblu Blecher</a>
+    <a href="index-a2.html" class="nav-logo">Emmanuelle Francblu Blecher</a>
     <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1024,7 +840,6 @@
     </ul>
   </nav>
 
-  <main id="main">
   <!-- HERO -->
   <div class="hero">
     <div class="hero-left">
@@ -1041,15 +856,7 @@
       <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
     </div>
     <div class="hero-right">
-      <picture>
-        <source type="image/webp"
-          srcset="Bureau1-600.webp 600w, Bureau1-1200.webp 1200w"
-          sizes="(max-width: 900px) 100vw, 50vw">
-        <img src="Bureau1.jpg"
-          alt="Cabinet de psychanalyse et hypnose ericksonienne d'Emmanuelle Francblu Blecher à Paris 11e — fauteuils jaunes, tapis rond, canapé"
-          width="1200" height="900"
-          fetchpriority="high" decoding="async">
-      </picture>
+      <img src="Bureau1.jpg" alt="Vue d'ensemble du cabinet — fauteuils jaunes, tapis rond, canapé" />
     </div>
   </div>
 
@@ -1057,13 +864,7 @@
   <section id="apropos">
     <div class="apropos-visual">
       <div class="apropos-photo-frame">
-        <picture>
-          <source type="image/webp" srcset="photo.webp">
-          <img src="photo.jpeg"
-            alt="Portrait d'Emmanuelle Francblu Blecher, psychanalyste et praticienne en hypnose ericksonienne à Paris 11e"
-            width="300" height="300"
-            loading="lazy" decoding="async">
-        </picture>
+        <img src="photo.jpeg" alt="Emmanuelle Francblu Blecher" />
       </div>
     </div>
     <div class="apropos-content">
@@ -1082,13 +883,7 @@
       </ul>
     </div>
     <figure class="cabinet-photo">
-      <picture>
-        <source type="image/webp" srcset="Bureau2.webp">
-        <img src="Bureau2.jpg"
-          alt="Salle de consultation du cabinet Francblu Blecher à Paris 11e — canapé, fauteuil jaune, lumière douce et apaisante"
-          width="1600" height="1200"
-          loading="lazy" decoding="async">
-      </picture>
+      <img src="Bureau2.jpg" alt="Le cabinet — canapé, fauteuil jaune, lumière douce" />
       <figcaption>Le cabinet — 17 boulevard Jules Ferry, Paris 11e</figcaption>
     </figure>
   </section>
@@ -1112,13 +907,7 @@
         <p class="accomp-closing">De façon globale, je vous accompagne pour démêler les éléments qui produisent de la souffrance — pour vous-même et, par ricochet, pour votre entourage.</p>
       </div>
       <div class="accomp-image">
-        <picture>
-          <source type="image/webp" srcset="Exterieur.webp">
-          <img src="Exterieur.jpg"
-            alt="Façade et extérieur du cabinet — 17 boulevard Jules Ferry, à deux minutes du métro République, Paris 11e"
-            width="1200" height="1500"
-            loading="lazy" decoding="async">
-        </picture>
+        <img src="Exterieur.jpg" alt="Extérieur du cabinet — 17 boulevard Jules Ferry, Paris 11e" />
       </div>
     </div>
   </section>
@@ -1258,8 +1047,6 @@
     </div>
   </section>
 
-  </main>
-
   <!-- SCROLL TO TOP -->
   <button type="button" class="scroll-top" aria-label="Retour en haut de la page">
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1269,20 +1056,12 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-brand">
-      <span class="footer-logo">Emmanuelle Francblu Blecher</span>
-      <span class="footer-tag">Psychanalyste & Hypno-praticienne · Paris 11e</span>
-    </div>
+    <span class="footer-logo">Emmanuelle Francblu Blecher · Psychanalyste & Hypno-praticienne</span>
     <ul class="footer-links">
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="mentions-legales.html">Mentions légales</a></li>
-      <li><a href="politique-confidentialite.html">Confidentialité</a></li>
     </ul>
-    <div class="footer-meta">
-      <span class="footer-copy">© 2026 · 17 bd Jules Ferry, 75011 Paris</span>
-      <span class="footer-credit">Site conçu par <a href="https://github.com/elieblch" rel="author noopener" target="_blank">Elie</a> · <time datetime="2026-05">Mai 2026</time></span>
-    </div>
+    <span class="footer-copy">© 2025 · Paris 11e</span>
   </footer>
 
   <script>

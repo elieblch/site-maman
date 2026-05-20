@@ -1,0 +1,18 @@
+# Documentation interne : ne PAS déployer publiquement sur Vercel
+CLAUDE.md
+MIGRATION-DOMAINE.md
+.claude/
+
+# Fichiers macOS
+.DS_Store
+
+# Sources brutes lourdes (les WebP de production sont déjà servis)
+*.heic
+Captures DNS/
+
+# Garde-fou : version legacy de l'index, conservée localement pour comparaison
+index-legacy.html
+
+# Notes éparses
+*.bak
+*.tmp
