@@ -15,10 +15,11 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+<style>
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/fonts/fraunces-var-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 100 900; font-display: swap; src: url(/fonts/fraunces-var-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/fonts/inter-var.woff2) format('woff2'); }
+</style>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -241,7 +242,7 @@ footer {
 
   <h3>Ressources tierces chargées par le site</h3>
   <ul>
-    <li><strong>Google Fonts</strong> (fonts.googleapis.com / fonts.gstatic.com) — chargement des polices Fraunces et Inter. Google peut, dans ce cadre, enregistrer techniquement votre adresse&nbsp;IP. <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Politique de confidentialité Google</a>.</li>
+    <li><strong>Polices d'affichage</strong> — les polices Fraunces et Inter sont <em>auto-hébergées</em> sur le serveur du site (Vercel). <strong>Aucune requête n'est envoyée à Google</strong> pour les charger&nbsp;: votre adresse IP n'est pas transmise à des serveurs Google Fonts.</li>
     <li><strong>Google Maps</strong> (iframe d'embed) — affichage de la carte de localisation du cabinet. Google peut déposer des cookies tiers lors du chargement de l'iframe. La carte ne se charge qu'à l'arrivée à hauteur dans la page (<code>loading="lazy"</code>).</li>
   </ul>
   <p>Vous pouvez bloquer ces ressources via les paramètres de votre navigateur ou via une extension type uBlock&nbsp;Origin, sans impact majeur sur la lecture du site.</p>

@@ -67,11 +67,34 @@
 <meta name="twitter:image" content="https://site-maman-sage.vercel.app/og-image.jpg">
 <meta name="twitter:image:alt" content="Cabinet d'Emmanuelle Francblu Blecher à Paris 11e République">
 
-<!-- Google Fonts async (Fraunces + Inter) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+<!-- Fonts self-hosted (Fraunces + Inter variable, subset latin uniquement - 196 KB total)
+     Bénéfice : suppression du DNS+TCP+TLS handshake vers fonts.gstatic.com (~600 ms sur 4G).
+     Preload des 2 woff2 critiques pour le LCP (hero-eyebrow Inter + hero-title Fraunces). -->
+<link rel="preload" as="font" type="font/woff2" href="/fonts/inter-var.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var-normal.woff2" crossorigin>
+<style>
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/fonts/fraunces-var-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/fonts/fraunces-var-italic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/fonts/inter-var.woff2) format('woff2');
+}
+</style>
 
 <!-- Schema.org : Person + ProfessionalService + WebSite (JSON-LD) -->
 <script type="application/ld+json">
