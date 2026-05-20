@@ -1,6 +1,6 @@
 # 🔴 MIGRATION DOMAINE — Checklist du jour J (Site-Maman)
 
-> Document de référence à exécuter le jour où le site passe de `site-maman.vercel.app` (URL preview) au domaine custom (ex. `relations-psy.fr` ou autre). Ne rien sauter, ne rien faire dans le désordre.
+> Document de référence à exécuter le jour où le site passe de `site-maman-sage.vercel.app` (URL preview) au domaine custom (ex. `relations-psy.fr` ou autre). Ne rien sauter, ne rien faire dans le désordre.
 
 **Hypothèses** :
 - Le domaine custom est enregistré et tu en es propriétaire / admin DNS
@@ -60,14 +60,14 @@
 - [ ] **Remplacer le domaine partout** :
   ```bash
   cd /Users/user/Desktop/Cours/Travail_Perso/Creation_Site/Site-Maman
-  grep -rln "site-maman.vercel.app" . \
+  grep -rln "site-maman-sage.vercel.app" . \
     --include='*.html' --include='*.xml' --include='*.txt' --include='*.md' \
-    | xargs sed -i '' 's|site-maman.vercel.app|NOUVEAU-DOMAINE|g'
+    | xargs sed -i '' 's|site-maman-sage.vercel.app|NOUVEAU-DOMAINE|g'
   ```
 
 - [ ] **Vérifier qu'il ne reste aucune occurrence** :
   ```bash
-  grep -rn "site-maman.vercel.app" . --include='*.html' --include='*.xml' --include='*.txt' --include='*.md'
+  grep -rn "site-maman-sage.vercel.app" . --include='*.html' --include='*.xml' --include='*.txt' --include='*.md'
   # Doit ne rien retourner.
   ```
 
@@ -192,7 +192,7 @@
   git status
   git commit -m "Migration vers domaine custom NOUVEAU-DOMAINE
 
-  - Domaine canonique passé de site-maman.vercel.app à NOUVEAU-DOMAINE
+  - Domaine canonique passé de site-maman-sage.vercel.app à NOUVEAU-DOMAINE
     (canonical, og:url, JSON-LD @id/url/image, sitemap)
   - Retrait du noindex sur index.html (page publiquement indexable)
   - robots.txt remis en mode production (Allow: / + 9 AI crawlers explicites)
@@ -326,7 +326,7 @@
 
 - [ ] Google : `site:NOUVEAU-DOMAINE` → doit retourner au moins la home
 - [ ] Test : `psychanalyste paris 11 république` ou `Emmanuelle Francblu Blecher` → vérifier la présence dans la SERP (7-14 jours)
-- [ ] Vérifier qu'aucun duplicate content avec `site-maman.vercel.app` : si Vercel Settings → Domains liste encore l'ancien, **ajouter une redirection 301** dans `vercel.json` :
+- [ ] Vérifier qu'aucun duplicate content avec `site-maman-sage.vercel.app` : si Vercel Settings → Domains liste encore l'ancien, **ajouter une redirection 301** dans `vercel.json` :
   ```json
   {
     "redirects": [
@@ -334,7 +334,7 @@
         "source": "/(.*)",
         "destination": "https://NOUVEAU-DOMAINE/$1",
         "permanent": true,
-        "has": [{ "type": "host", "value": "site-maman.vercel.app" }]
+        "has": [{ "type": "host", "value": "site-maman-sage.vercel.app" }]
       }
     ]
   }
@@ -355,7 +355,7 @@
 2. Si oui : problème DNS → vérifier les enregistrements
 3. Si non : `git revert HEAD && git push` pour rollback
 
-### Symptôme B : Google indexe encore `site-maman.vercel.app` (duplicate content)
+### Symptôme B : Google indexe encore `site-maman-sage.vercel.app` (duplicate content)
 
 1. Ajouter la redirection 301 dans `vercel.json` (voir J+3)
 2. Dans GSC ancien projet : Settings → "Remove URL prefix property"
@@ -385,14 +385,14 @@ Après rollback : Vercel → Settings → Domains → retirer le nouveau domaine
 
 | Fichier | Changement |
 |---|---|
-| `index.html` | `site-maman.vercel.app` → nouveau domaine (canonical + OG + JSON-LD), retrait noindex |
+| `index.html` | `site-maman-sage.vercel.app` → nouveau domaine (canonical + OG + JSON-LD), retrait noindex |
 | `mentions-legales.html` | Domaine + (optionnel) `noindex, follow` au lieu de `noindex, nofollow` |
 | `politique-confidentialite.html` | Idem |
 | `robots.txt` | Réécrit en version production (Allow: / + AI crawlers) |
 | `sitemap.xml` | URLs migrées |
 | `CLAUDE.md` | Sections obsolètes retirées, date mise à jour |
 | `MIGRATION-DOMAINE.md` (ce fichier) | Note d'exécution en haut |
-| (nouveau) `vercel.json` | Redirection 301 depuis site-maman.vercel.app (si applicable) |
+| (nouveau) `vercel.json` | Redirection 301 depuis site-maman-sage.vercel.app (si applicable) |
 
 ---
 

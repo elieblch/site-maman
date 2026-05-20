@@ -2,7 +2,7 @@
 # Psychanalyste & Hypno-praticienne · Paris 11e République
 #
 # ÉTAT PROVISOIRE : DISALLOW TOTAL pendant la phase preview Vercel.
-# Le site est servi sur https://site-maman.vercel.app/ uniquement pour
+# Le site est servi sur https://site-maman-sage.vercel.app/ uniquement pour
 # validation interne par la praticienne pendant la phase de relecture.
 #
 # Le jour de la bascule sur le domaine custom (ex : relations-psy.fr),
@@ -16,4 +16,4 @@ Disallow: /
 
 # Sitemap reste référencé : non crawlé tant que Disallow: / est actif,
 # mais prêt pour le jour de la bascule.
-Sitemap: https://site-maman.vercel.app/sitemap.xml
+Sitemap: https://site-maman-sage.vercel.app/sitemap.xml

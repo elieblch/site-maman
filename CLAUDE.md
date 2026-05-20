@@ -159,7 +159,7 @@ Site **mono-page** : un seul `index.html` à la racine. Avant la bascule SEO fin
 
 > ⚠️ **À MIGRER quand un domaine custom sera branché.**
 
-URL provisoire actuelle : `https://site-maman.vercel.app` (preview Vercel typique pour le repo `elieblch/site-maman`).
+URL provisoire actuelle : `https://site-maman-sage.vercel.app` (preview Vercel typique pour le repo `elieblch/site-maman`).
 Domaine final probable : `relations-psy.fr` (cf. email `efb@relations-psy.fr`).
 Statut : URL preview. **Doit être remplacée** dès la mise en prod réelle.
 
@@ -167,9 +167,9 @@ Statut : URL preview. **Doit être remplacée** dès la mise en prod réelle.
 
 **Commande de migration en une fois** (depuis la racine du projet) :
 ```bash
-grep -rln "site-maman.vercel.app" . \
+grep -rln "site-maman-sage.vercel.app" . \
   --include='*.html' --include='*.xml' --include='*.txt' --include='*.md' \
-  | xargs sed -i '' 's|https://site-maman.vercel.app|https://NOUVEAU-DOMAINE|g'
+  | xargs sed -i '' 's|https://site-maman-sage.vercel.app|https://NOUVEAU-DOMAINE|g'
 ```
 
 **Endroits affectés** :
