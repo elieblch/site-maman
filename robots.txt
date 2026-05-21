@@ -1,19 +1,40 @@
 # robots.txt — Cabinet Emmanuelle Francblu Blecher
 # Psychanalyste & Hypno-praticienne · Paris 11e République
-#
-# ÉTAT PROVISOIRE : DISALLOW TOTAL pendant la phase preview Vercel.
-# Le site est servi sur https://site-maman-sage.vercel.app/ uniquement pour
-# validation interne par la praticienne pendant la phase de relecture.
-#
-# Le jour de la bascule sur le domaine custom (ex : relations-psy.fr),
-# remplacer le contenu de ce fichier par la version production documentée
-# dans MIGRATION-DOMAINE.md.
-#
-# Last updated: 2026-05-20
+# Production · Last updated: 2026-05-21
 
+# ─── Crawlers de recherche classiques ───
 User-agent: *
-Disallow: /
+Allow: /
 
-# Sitemap reste référencé : non crawlé tant que Disallow: / est actif,
-# mais prêt pour le jour de la bascule.
-Sitemap: https://site-maman-sage.vercel.app/sitemap.xml
+# ─── AI crawlers : autorisés (citabilité ChatGPT, Claude, Perplexity, Gemini) ───
+# 45% des recommandations locales viennent désormais d'assistants AI.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ─── Sitemap ───
+Sitemap: https://www.relations-psy.fr/sitemap.xml

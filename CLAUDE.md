@@ -143,10 +143,7 @@ Le SEO de la santé mentale (YMYL — Your Money Your Life) est strict côté Go
 
 ### Single source of truth
 
-Site **mono-page** : un seul `index.html` à la racine. Avant la bascule SEO finale :
-- `index.html` = version originale (garde-fou)
-- `index.seo.html` = version de travail SEO
-À la bascule (Phase 5) : `index.html` → `index-legacy.html`, `index.seo.html` → `index.html`.
+Site **mono-page** : un seul `index.html` à la racine (version SEO complète, en production sur `https://www.relations-psy.fr`). La version originale pré-SEO est conservée dans `index-legacy.html` (exclue du déploiement via `.vercelignore` — uniquement utile en local pour comparaison).
 
 ### Police bannie
 
@@ -155,33 +152,15 @@ Site **mono-page** : un seul `index.html` à la racine. Avant la bascule SEO fin
 - **Corps** : `Inter` (sans-serif lisible, neutre)
 - Combo validé sur d'autres projets de l'utilisateur (cf. `reference_validated_fonts.md`).
 
-### Domaine canonique (PROVISOIRE)
+### Domaine canonique de production
 
-> ⚠️ **À MIGRER quand un domaine custom sera branché.**
+> ✅ **Domaine custom branché et actif depuis le 2026-05-21.**
 
-URL provisoire actuelle : `https://site-maman-sage.vercel.app` (preview Vercel typique pour le repo `elieblch/site-maman`).
-Domaine final probable : `relations-psy.fr` (cf. email `efb@relations-psy.fr`).
-Statut : URL preview. **Doit être remplacée** dès la mise en prod réelle.
+URL canonique unique : **`https://www.relations-psy.fr`** (Vercel redirige automatiquement `relations-psy.fr` → `www.relations-psy.fr` en 307).
 
-**Marqueur** : un commentaire HTML `@canonical-domain` est placé en haut de `index.seo.html` (porté sur `index.html` à la bascule).
+Configuration DNS + HTTPS validés côté Vercel. Le site est indexable (`noindex` retiré, `robots.txt` en mode Allow + AI crawlers explicites).
 
-**Commande de migration en une fois** (depuis la racine du projet) :
-```bash
-grep -rln "site-maman-sage.vercel.app" . \
-  --include='*.html' --include='*.xml' --include='*.txt' --include='*.md' \
-  | xargs sed -i '' 's|https://site-maman-sage.vercel.app|https://NOUVEAU-DOMAINE|g'
-```
-
-**Endroits affectés** :
-| Fichier | Occurrences |
-|---|---|
-| `index.html` | `<link rel="canonical">`, `og:url`, JSON-LD `@id` × 3, `url` × 2, `logo`, `image` × 2 (~10) |
-| `sitemap.xml` | `<loc>` |
-| `robots.txt` | `Sitemap:` |
-| `mentions-legales.html` / `politique-confidentialite.html` | éventuelles refs |
-| `CLAUDE.md` | exemples |
-
-Voir `MIGRATION-DOMAINE.md` (généré par bloc 4) pour la procédure complète.
+Historique : le site a été servi sur `site-maman-sage.vercel.app` (preview Vercel) du 2026-05-20 au 2026-05-21. La trace de cette URL provisoire reste dans `MIGRATION-DOMAINE.md` à titre d'historique uniquement (fichier non déployé via `.vercelignore`).
 
 ---
 
@@ -197,70 +176,74 @@ Voir `MIGRATION-DOMAINE.md` (généré par bloc 4) pour la procédure complète.
 
 ## 5. TODOs restants (action user / cliente "Maman")
 
-Le site est **prêt à pousser en preview** mais quelques éléments nécessitent une intervention humaine. Grep :
+Le site est **en production** sur https://www.relations-psy.fr depuis le 2026-05-21. Les éléments ci-dessous nécessitent une intervention humaine. Grep :
 ```bash
 grep -rn "TODO\|🔴" . --include='*.html' --include='*.txt' --include='*.md'
 ```
 
-### 🔴 PRIORITÉ ABSOLUE — LE JOUR DE LA BASCULE DOMAINE
+### ✅ FAIT (historique)
 
-**Désactiver le `noindex` provisoire** (mis pour la phase preview Vercel). Sans cette action, le site sur le vrai domaine restera **invisible à Google**. Procédure dans `MIGRATION-DOMAINE.md` :
+- **2026-05-20** : Création SEO complète + déploiement Vercel preview (`site-maman-sage.vercel.app`)
+- **2026-05-21** : Bascule sur domaine custom **`https://www.relations-psy.fr`** — retrait `noindex,nofollow` sur les 3 HTML, `robots.txt` en mode production (Allow / + 9 AI crawlers explicites), `sitemap.xml` et tous les `@id`/`url`/`canonical`/`og:url` migrés.
 
-1. **3 fichiers HTML** — retirer la balise `<meta name="robots" content="noindex, nofollow">` du `<head>` de :
-   `index.html`, `mentions-legales.html`, `politique-confidentialite.html`.
+### 🔴 PRIORITÉ ABSOLUE — à faire dans les 24-72 h post-bascule
 
-2. **`robots.txt`** — remplacer le contenu provisoire (`Disallow: /`) par la version production (Allow: / + 9 AI crawlers explicites).
+1. **Google Search Console** — https://search.google.com/search-console/
+   - Add property → URL prefix → `https://www.relations-psy.fr/`
+   - Récupérer la balise meta de vérification et l'ajouter dans `<head>` de `index.html` : `<meta name="google-site-verification" content="...">`
+   - Sitemaps → Add → `sitemap.xml` → Submit
+   - Inspection URL → coller les 3 URLs (home + mentions-legales + politique-confidentialite) → "Test live URL" → "Request indexing"
 
-3. **Vérification post-bascule** :
-   - Tester sur https://www.google.com/search?q=site:NOUVEAU-DOMAINE (48-72h)
-   - Soumettre `sitemap.xml` dans Google Search Console
-   - "Live test" sur l'URL principale dans GSC pour forcer le recrawl
+2. **Bing Webmaster Tools** — https://www.bing.com/webmasters
+   - Add a site → `https://www.relations-psy.fr/`
+   - Import direct depuis GSC possible (1 clic)
+   - Soumettre `sitemap.xml`
+   - Critique pour l'AI visibility : Bing alimente ChatGPT, Copilot, Alexa
+
+3. **Google Business Profile (GBP)** — https://business.google.com
+   - Claim "Cabinet Emmanuelle Francblu Blecher" (17 bd Jules Ferry, 75011 Paris)
+   - Catégorie primaire : **"Psychanalyste"**
+   - Catégorie secondaire : "Hypnothérapeute"
+   - Horaires : "Sur rendez-vous" (champ libre — pas d'horaires fixes)
+   - Téléphone : `+33 6 16 98 46 78`
+   - Site web : `https://www.relations-psy.fr/`
+   - Photos : intérieur cabinet, extérieur, portrait
+   - **Récupérer le `place_id` GBP** une fois validée et remplacer l'iframe Google Maps dans `index.html` (section #localisation) — actuellement la map cherche par adresse, la fiche GBP avec ses avis sera meilleure.
 
 ### 🔴 Priorité haute — à faire avec "Maman"
 
-1. **Domaine de production custom** — actuellement preview Vercel. Si `relations-psy.fr` est dispo et qu'elle veut s'en servir, suivre `MIGRATION-DOMAINE.md`.
-
-2. **Fiche Google Business Profile (GBP)** — créer/claim sur https://business.google.com :
-   - Catégorie primaire : "Psychanalyste"
-   - Catégorie secondaire : "Hypnothérapeute"
-   - Adresse : 17 boulevard Jules Ferry, 75011 Paris
-   - Téléphone : +33 6 16 98 46 78
-   - Site web : URL finale du domaine
-   - **Récupérer le `place_id`** pour pointer l'iframe Google Maps sur la fiche GBP (et ses avis) : actuellement l'iframe cherche par adresse.
-
-3. **Vraies URLs sociales (si compte existant)** — actuellement aucune URL sociale n'est dans le footer. Si Mme Francblu Blecher a un LinkedIn pro, un compte Doctolib, ResaLib, ou autre annuaire pro, les ajouter au schema JSON-LD champ `sameAs`.
-
-4. **Infos légales obligatoires** — marquées `<span class="todo">À COMPLÉTER PAR LA PRATICIENNE</span>` dans `mentions-legales.html` et `politique-confidentialite.html` :
+4. **Infos légales obligatoires** — `<span class="todo">À COMPLÉTER PAR LA PRATICIENNE</span>` dans `mentions-legales.html` et `politique-confidentialite.html` :
    - Statut juridique (libéral / micro-entreprise / EI)
    - N° SIRET
-   - N° ADELI ou RPPS (si applicable pour hypnothérapeute)
-   - Assurance professionnelle (RC Pro) : nom assureur + n° police + couverture géographique
-   - Médiateur de la consommation (obligatoire pour toute activité de service à client particulier — choisir parmi les médiateurs agréés CECMC)
+   - N° ADELI ou RPPS (si applicable)
+   - Assurance RC Pro : nom assureur + n° police + couverture géographique
+   - Médiateur de la consommation agréé CECMC (obligation L.611-1 Code de la consommation pour toute activité B2C)
+   - Représentant légal (si statut le requiert)
 
-### 🟡 Priorité moyenne — à faire après mise en ligne réelle
+5. **Vraies URLs sociales / annuaires pros** — si compte existant, à ajouter au schema JSON-LD champ `sameAs` :
+   - LinkedIn pro Mme Francblu Blecher
+   - Doctolib (si prise de RDV en ligne)
+   - Psychologue.net / PsyEnLigne (si fiche existante)
+   - Pages Jaunes (annuaire local FR)
 
-5. **Vraies photos optimisées** — les photos `Bureau1.jpg`, `Bureau2.jpg`, `Exterieur.jpg` ont été converties en WebP (bloc 2). Si de meilleures photos sont disponibles plus tard :
+### 🟡 Priorité moyenne — après inscription GSC
+
+6. **Apple Business Connect** — https://businessconnect.apple.com (claim, NAP + URL site) → atteint Apple Maps + Siri
+
+7. **Vraies photos optimisées** — si meilleures photos disponibles plus tard :
    ```bash
    cwebp -q 75 -metadata all photo-XX.jpg -o photo-XX.webp   # LCP / hero
    cwebp -q 82 -metadata all photo-XX.jpg -o photo-XX.webp   # sous le fold
    ```
 
-6. **Google Search Console** — vérifier le domaine + soumettre `sitemap.xml`
-
-7. **Bing Webmaster Tools** — soumettre le sitemap (alimente ChatGPT, Copilot)
-
-8. **Apple Business Connect** — claim sur https://businessconnect.apple.com (Apple Maps + Siri)
-
-9. **Annuaires professionnels santé mentale** (pertinents pour psychanalyste) :
-   - Doctolib (si accepte la prise de RDV en ligne)
-   - PsyEnLigne / Psychologue.net (si applicable)
-   - Pages Jaunes (annuaire local FR)
+8. **Monitoring CrUX (Core Web Vitals terrain)** — après 1 k visites :
+   https://pagespeed.web.dev/?url=https://www.relations-psy.fr/
 
 ### 🟢 Priorité basse — v2 éventuelle
 
-10. **Page blog / ressources** — articles E-E-A-T (qu'est-ce que la psychanalyse, hypnose ericksonienne, MBSR…) pour ranker sur des recherches informationnelles. Mais attention : santé mentale = YMYL, niveau de qualité éditorial très élevé requis.
-11. **Page tarifs** dédiée — si Mme Francblu Blecher accepte d'afficher des fourchettes.
-12. **Section témoignages anonymisés** — uniquement si vrais témoignages avec accord écrit ; **ne PAS** ajouter aggregateRating schema (Google ignore le self-serving review markup).
+9. **Page blog / ressources** — articles E-E-A-T (qu'est-ce que la psychanalyse, hypnose ericksonienne, MBSR…). Attention : santé mentale = YMYL, qualité éditoriale très haute requise.
+10. **Page tarifs** dédiée — si choix d'afficher des fourchettes.
+11. **Section témoignages anonymisés** — uniquement avec vrais témoignages + accord écrit ; **ne PAS** ajouter `aggregateRating` schema (Google ignore le self-serving review markup).
 
 ---
 
@@ -280,4 +263,4 @@ Si l'utilisateur demande un audit complet, suivre (en exécutant le script Pytho
 
 ---
 
-*Dernière mise à jour : 2026-05-20 (création SEO complète : schema Person+ProfessionalService, OG/Twitter/canonical, favicons, WebP+preload, mentions légales, sitemap, robots, noindex preview Vercel temporaire)*
+*Dernière mise à jour : 2026-05-21 (bascule production domaine custom `https://www.relations-psy.fr` : retrait noindex sur les 3 HTML, robots.txt en mode production, migration de toutes les URLs absolues — canonical/og:url/JSON-LD @id+url+image, sitemap.xml)*

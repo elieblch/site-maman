@@ -1,4 +1,6 @@
-# 🔴 MIGRATION DOMAINE — Checklist du jour J (Site-Maman)
+# ✅ MIGRATION DOMAINE — Historique (Site-Maman)
+
+> ✅ **Migration effectuée le 2026-05-21.** Domaine final en production : **`https://www.relations-psy.fr`**. Ce document devient un historique — toutes les étapes ci-dessous ont été exécutées. Les commandes / URLs `site-maman-sage.vercel.app` restent à titre de trace pour audit, mais elles n'ont plus d'effet (le subdomain Vercel preview n'est plus le canonical).
 
 > Document de référence à exécuter le jour où le site passe de `site-maman-sage.vercel.app` (URL preview) au domaine custom (ex. `relations-psy.fr` ou autre). Ne rien sauter, ne rien faire dans le désordre.
 
