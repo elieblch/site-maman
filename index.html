@@ -94,25 +94,6 @@
   font-display: swap;
   src: url(/fonts/inter-var.woff2) format('woff2');
 }
-/* Adjusted fallback fonts : matchent les metriques de Fraunces/Inter pour
-   eliminer tout layout shift et stabiliser le LCP element (nav-logo, hero-title).
-   Le fallback rend pixel-perfect en attendant l'arrivee du woff2 self-hosted. */
-@font-face {
-  font-family: 'Fraunces Fallback';
-  src: local('Georgia');
-  size-adjust: 105%;
-  ascent-override: 92%;
-  descent-override: 25%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: 'Inter Fallback';
-  src: local('Arial');
-  size-adjust: 107%;
-  ascent-override: 90%;
-  descent-override: 22.5%;
-  line-gap-override: 0%;
-}
 </style>
 
 <!-- Schema.org : Person + ProfessionalService + WebSite (JSON-LD) -->
@@ -235,8 +216,8 @@
       --text-mid:  #3D6B50;
       --text-light:#5F8C6E;
       --accent:    #E8C84A;
-      --serif: 'Fraunces', 'Fraunces Fallback', Georgia, 'Times New Roman', serif;
-      --sans:  'Inter', 'Inter Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --sans:  'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
